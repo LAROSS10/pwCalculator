@@ -6,26 +6,70 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Random Password Calculator</title>
 </head>
-</body>
-<script>
+</body> 
+<h1> This is our Random Generator Password Page</h1>
+
+
+<script type="text/javascript">
+
+  
     // the below four lines of code are the prompts to request the users password lenght options for each character type.
 let userSpecCharacters = prompt('How many special characters would you like in your password?');
 let userNumericCharacters = prompt('How many numbers would you like in your password?');
 let userLowerCaseLetters = prompt('How many lower case letters would you like in your password?');
 let userUpperCaseLetters = prompt('How many uppercase letters would you like in your password?'); 
 
-// the below four lines are code are the variables for the arrays that will be used later in the random generater to create the password
-const staticCharactersArray = ['!' , '@' , '#', '$', '%','`','(',')','&','*','+','/',':',';','?','<','>','[','}'];
-const specNumericCharacters = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125]
-const staticUpperCaseLetters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U,']
-const staticLowerCaseLetters = ['a','b','c','d','e', 'f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-
+// the below four lines are code are the variables for the strings that will be used later in the random generater to create the password
+const staticCharactersArray = '!@#$%(&*';
+const specNumericCharacters = '1234567890';
+const staticUpperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const staticLowerCaseLetters = 'accdefghijklmnopqrstuvwxyz';
 
 //this is code to sum of all the user choices so we will now know how long to make the array that will create the password length based on user input
 let userChoicesSum = parseInt(userSpecCharacters) + parseInt(userNumericCharacters) + parseInt(userLowerCaseLetters) + parseInt(userUpperCaseLetters);
 
 console.log(userChoicesSum)
+// variables that act as placeholders for the "answers" to each invoking of the randomStr function
+var spCharString = '';
+var numCharString = '';
+var upCaseString = '';
+var lowCaseString = '';
+var password = '';
+var totalString = '';
+
+// this function was found on https://www.geeksforgeeks.org/generate-random-alpha-numeric-string-in-javascript/ it is a random alpha-numeric string generator,which passes the variables I created above to create the random characters
+function randomStr(len, arr) { 
+            var ans = ''; 
+            for (var i = len; i > 0; i--) { 
+                ans +=  
+                  arr[Math.floor(Math.random() * arr.length)]; 
+            } 
+            return ans; 
+        } 
+ 
+
+spCharString = randomStr(userSpecCharacters,staticCharactersArray);
+numCharString =randomStr(userNumericCharacters,specNumericCharacters);
+lowCaseString = randomStr(userUpperCaseLetters,staticUpperCaseLetters);
+upCaseString = randomStr(userLowerCaseLetters,staticLowerCaseLetters);
+totalString = spCharString + numCharString + lowCaseString + upCaseString;
+
+password = randomStr(userChoicesSum,totalString);
+
+
+
+console.log(spCharString);
+console.log(numCharString);
+
+console.log(upCaseString);
+
+console.log(lowCaseString);
+
+console.log(totalString);
+console.log(password)
 
 </script>
+
+<h2>Here is your Password</h2>
 </body>
 </html>
