@@ -3,73 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Random Password Calculator</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">   
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"> 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+    
+    <title>My test</title>
 </head>
-</body> 
-<h1> This is our Random Generator Password Page</h1>
+<body>
+    
+<div class="container">   
+        <div class="row">
+            <div class="col-md-12">
+                <p id="header">PASSWORD GENERATOR</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class ="col-md-12">
+                <div class="box">
+                    <h2 id="secure">Generate A Password</h2
+                    <br>
+                    <hr>
+                </div>
+            </div>
+        </div>
 
+        <div class="row"> 
+            <div class = "col-md-12">
+                <h4 id="boxPassword">Your Secure Password</h4>             
+            </div>
+        </div>
 
-<script type="text/javascript">
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-danger" onclick="userPrompts()">Generate Password</button>
+                               
+            </div>        
+            <div class="col-md-6">
+                <button onclick ="pasteToClip()">Copy To Clipboard</button>   
+                
+            </div> 
+        </div>                          
+</div>
+         
 
-  
-    // the below four lines of code are the prompts to request the users password lenght options for each character type.
-let userSpecCharacters = prompt('How many special characters would you like in your password?');
-let userNumericCharacters = prompt('How many numbers would you like in your password?');
-let userLowerCaseLetters = prompt('How many lower case letters would you like in your password?');
-let userUpperCaseLetters = prompt('How many uppercase letters would you like in your password?'); 
+<script src="javatest.js"></script>  
 
-// the below four lines are code are the variables for the strings that will be used later in the random generater to create the password
-const staticCharactersArray = '!@#$%(&*';
-const specNumericCharacters = '1234567890';
-const staticUpperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const staticLowerCaseLetters = 'accdefghijklmnopqrstuvwxyz';
-
-//this is code to sum of all the user choices so we will now know how long to make the array that will create the password length based on user input
-let userChoicesSum = parseInt(userSpecCharacters) + parseInt(userNumericCharacters) + parseInt(userLowerCaseLetters) + parseInt(userUpperCaseLetters);
-
-console.log(userChoicesSum)
-// variables that act as placeholders for the "answers" to each invoking of the randomStr function
-var spCharString = '';
-var numCharString = '';
-var upCaseString = '';
-var lowCaseString = '';
-var password = '';
-var totalString = '';
-
-// this function was found on https://www.geeksforgeeks.org/generate-random-alpha-numeric-string-in-javascript/ it is a random alpha-numeric string generator,which passes the variables I created above to create the random characters
-function randomStr(len, arr) { 
-            var ans = ''; 
-            for (var i = len; i > 0; i--) { 
-                ans +=  
-                  arr[Math.floor(Math.random() * arr.length)]; 
-            } 
-            return ans; 
-        } 
  
-
-spCharString = randomStr(userSpecCharacters,staticCharactersArray);
-numCharString =randomStr(userNumericCharacters,specNumericCharacters);
-lowCaseString = randomStr(userUpperCaseLetters,staticUpperCaseLetters);
-upCaseString = randomStr(userLowerCaseLetters,staticLowerCaseLetters);
-totalString = spCharString + numCharString + lowCaseString + upCaseString;
-
-password = randomStr(userChoicesSum,totalString);
-
-
-
-console.log(spCharString);
-console.log(numCharString);
-
-console.log(upCaseString);
-
-console.log(lowCaseString);
-
-console.log(totalString);
-console.log(password)
-
-</script>
-
-<h2>Here is your Password</h2>
 </body>
 </html>
