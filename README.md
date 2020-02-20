@@ -12,3 +12,6 @@
 <h4>Launch</h4>
 <h5>Sources</h5>
     
+Please see below attached links to the deployed project
+https://laross10.github.io/pwCalculator/
+https://github.com/LAROSS10/pwCalculator
